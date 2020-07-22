@@ -7,13 +7,15 @@ Christian Sánchez Salas
 
 Katherine Tuz Carrillo
 
-El entrenamiento se realizó en Colab.
+---------
+Se implementa ResNet (Red Residual) utilizando el módulo "Keras" de Tensorflow y un set de imágenes de Google para entrenar el modelo que se encarga de predecir la imagen dibujada en el recuadro correspondiente en el sitio web de ejemplo.
 
-Para ejecutar el proyecto puede acceder a este link: https://katkankin.github.io/aihomework.github.io/
 
-Pasos:
+El entrenamiento del set de datos se realizó en Colab.
 
-* Esperar unos segundos para que se cargue el modelo.
+Pasos para ejecutar el proyecto:
+* Acceda a este link: https://katkankin.github.io/aihomework.github.io/
+* Esperar a que se cargue el modelo: Observará el mensaje "Model Loaded" cuando este se encuentre listo.
 * Dibujar en el canva.
 
 Notas:
