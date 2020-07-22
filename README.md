@@ -5,7 +5,12 @@ Christian Sánchez Salas
 Katherine Tuz Carrillo
 
 El entrenamiento se realizó en Colab.
+
 Para ejecutar el proyecto puede acceder a este link: https://katkankin.github.io/aihomework.github.io/
 
+Pasos:
+
+* Esperar unos segundos para que se cargue el modelo.
+* Dibujar en el canva.
 
 
