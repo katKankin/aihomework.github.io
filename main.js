@@ -1,4 +1,4 @@
-/*variables*/
+//Define global variables
 var model;
 var canvas;
 var classNames = [];
@@ -7,7 +7,7 @@ var coords = [];
 var mousePressed = false;
 var mode;
 
-/* Creating the canva */
+// Creating the canva
 $(function() {
     canvas = window._canvas = new fabric.Canvas('canvas');
     canvas.backgroundColor = '#ffffff';
@@ -28,7 +28,7 @@ $(function() {
     });
 })
 
-/*set the table of the predictions */
+//set the predictions table
 function setTable(top5, probs) {
     //loop over the predictions 
     for (var i = 0; i < top5.length; i++) {
@@ -41,7 +41,7 @@ function setTable(top5, probs) {
     createPie(".pieID.legend", ".pieID.pie");
 }
 
-/*record the current drawing coordinates*/
+//record the current drawing coordinates
 function recordCoor(event) {
     var pointer = canvas.getPointer(event.e);
     var posX = pointer.x;
@@ -90,7 +90,7 @@ function getImageData() {
         return imgData
     }
 
-/*prediction */
+/*predictions*/
 function getFrame() {
     //make sure we have at least two recorded coordinates 
     if (coords.length >= 2) {
