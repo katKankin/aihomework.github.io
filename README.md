@@ -1,7 +1,10 @@
  ## Tarea IA - Sketch - ResNet 
 Integrantes:
+
 Fabian Castro Blanco
+
 Christian Sánchez Salas
+
 Katherine Tuz Carrillo
 
 El entrenamiento se realizó en Colab.
@@ -12,5 +15,9 @@ Pasos:
 
 * Esperar unos segundos para que se cargue el modelo.
 * Dibujar en el canva.
+
+Notas:
+
+Algunos dibujos que puede realizar son: luna, mesa, sombrilla, árbol, hongo, ventilador, audífonos.
 
 
