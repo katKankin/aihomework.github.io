@@ -20,4 +20,6 @@ Notas:
 
 Algunos dibujos que puede realizar son: luna, mesa, sombrilla, árbol, hongo, ventilador, audífonos.
 
+Para ver más dibujos posibles, puede acceder a este archivo: model/class_names.txt
+
 
