@@ -1,8 +1,11 @@
-# Sketcher 
+ ## Tarea IA - Sketch - ResNet 
+Integrantes:
+Fabian Castro Blanco
+Christian Sánchez Salas
+Katherine Tuz Carrillo
 
-## Project Description 
+El entrenamiento se realizó en Colab.
+Para ejecutar el proyecto puede acceder a este link: https://katkankin.github.io/aihomework.github.io/
 
-* Train on google colab using sketcher.ipynb and convert the model to web format then save to the model 
-* Make inference on the browser using TensorFlow.js 
 
 

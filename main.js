@@ -1,6 +1,4 @@
-/*
-variables
-*/
+/*variables*/
 var model;
 var canvas;
 var classNames = [];
@@ -9,9 +7,7 @@ var coords = [];
 var mousePressed = false;
 var mode;
 
-/*
-prepare the drawing canvas 
-*/
+/* Creating the canva */
 $(function() {
     canvas = window._canvas = new fabric.Canvas('canvas');
     canvas.backgroundColor = '#ffffff';
@@ -32,9 +28,7 @@ $(function() {
     });
 })
 
-/*
-set the table of the predictions 
-*/
+/*set the table of the predictions */
 function setTable(top5, probs) {
     //loop over the predictions 
     for (var i = 0; i < top5.length; i++) {
@@ -45,12 +39,9 @@ function setTable(top5, probs) {
     }
     //create the pie 
     createPie(".pieID.legend", ".pieID.pie");
-
 }
 
-/*
-record the current drawing coordinates
-*/
+/*record the current drawing coordinates*/
 function recordCoor(event) {
     var pointer = canvas.getPointer(event.e);
     var posX = pointer.x;
@@ -61,9 +52,7 @@ function recordCoor(event) {
     }
 }
 
-/*
-get the best bounding box by trimming around the drawing
-*/
+/*get the best bounding box*/
 function getMinBox() {
     //get coordinates 
     var coorX = coords.map(function(p) {
@@ -82,7 +71,6 @@ function getMinBox() {
         x: Math.max.apply(null, coorX),
         y: Math.max.apply(null, coorY)
     }
-
     //return as strucut 
     return {
         min: min_coords,
@@ -90,9 +78,7 @@ function getMinBox() {
     }
 }
 
-/*
-get the current image data 
-*/
+/*get the current image data */
 function getImageData() {
         //get the minimum bounding box around the drawing 
         const mbb = getMinBox()
@@ -104,9 +90,7 @@ function getImageData() {
         return imgData
     }
 
-/*
-get the prediction 
-*/
+/*prediction */
 function getFrame() {
     //make sure we have at least two recorded coordinates 
     if (coords.length >= 2) {
@@ -125,12 +109,9 @@ function getFrame() {
         //set the table 
         setTable(names, probs)
     }
-
 }
 
-/*
-get the the class names 
-*/
+/* class names */
 function getClassNames(indices) {
     var outp = []
     for (var i = 0; i < indices.length; i++)
@@ -138,9 +119,7 @@ function getClassNames(indices) {
     return outp
 }
 
-/*
-load the class names 
-*/
+/*load the class names */
 async function loadDict() {
     if (mode == 'ar')
         loc = 'model2/class_names_ar.txt'
@@ -153,9 +132,7 @@ async function loadDict() {
     }).done(success);
 }
 
-/*
-load the class names
-*/
+/*load the class names*/
 function success(data) {
     const lst = data.split(/\n/)
     for (var i = 0; i < lst.length - 1; i++) {
@@ -164,9 +141,7 @@ function success(data) {
     }
 }
 
-/*
-get indices of the top probs
-*/
+/*get indices of the top probs*/
 function findIndicesOfMax(inp, count) {
     var outp = [];
     for (var i = 0; i < inp.length; i++) {
@@ -181,9 +156,7 @@ function findIndicesOfMax(inp, count) {
     return outp;
 }
 
-/*
-find the top 5 predictions
-*/
+/*find the top 5 predictions*/
 function findTopValues(inp, count) {
     var outp = [];
     let indices = findIndicesOfMax(inp, count)
@@ -193,9 +166,7 @@ function findTopValues(inp, count) {
     return outp
 }
 
-/*
-preprocess the data
-*/
+/*preprocess the data*/
 function preprocess(imgData) {
     return tf.tidy(() => {
         //convert to a tensor 
@@ -208,17 +179,14 @@ function preprocess(imgData) {
         const offset = tf.scalar(255.0);
         const normalized = tf.scalar(1.0).sub(resized.div(offset));
 
-        //We add a dimension to get a batch shape 
+        //add a dimension to get a batch shape 
         const batched = normalized.expandDims(0)
         return batched
     })
 }
 
-/*
-load the model
-*/
+/*load the model*/
 async function start(cur_mode) {
-    //arabic or english
     mode = cur_mode
     
     //load the model 
@@ -234,9 +202,7 @@ async function start(cur_mode) {
     await loadDict()
 }
 
-/*
-allow drawing on canvas
-*/
+/*allow drawing on canvas*/
 function allowDrawing() {
     canvas.isDrawingMode = 1;
     if (mode == 'en')
@@ -250,9 +216,7 @@ function allowDrawing() {
     };
 }
 
-/*
-clear the canvs 
-*/
+/*clear the canva */
 function erase() {
     canvas.clear();
     canvas.backgroundColor = '#ffffff';
